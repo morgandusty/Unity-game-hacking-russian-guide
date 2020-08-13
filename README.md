@@ -1,11 +1,12 @@
-This is a small guide for extracting and modifying assets or code from games made with the Unity engine. Feel free to contribute.
+![alt text](https://sun9-39.userapi.com/c858124/v858124980/21a91f/OD1WAGT1LEs.jpg)
+Это небольшое руководство по извлечению и изменению ресурсов или кода из игр, созданных с помощью движка Unity. Не стесняйтесь вносить свой вклад.
 
-1. [Unity game folder structure](#unity-game-folder-structure)
-2. [Extracting and editing code](#extracting-and-editing-code)
-3. [Extracting assets](#extracting-assets)
-4. [Hacking memory](#hacking-memory)
+1. [Структура папок игры Unity](#unity-game-folder-structure)
+2. [Извлечение и редактирование кода](#extracting-and-editing-code)
+3. [Извлечение активов](#extracting-assets)
+4. [Взлом памяти](#hacking-memory)
 
-## Unity game folder structure
+## Структура папок игры Unity
 
 ```
 │   *.exe
@@ -57,47 +58,50 @@ This is a small guide for extracting and modifying assets or code from games mad
             unity_builtin_extra
 ```
 
-\* : Name chosen during building
+\* : имя было выбрано при компиляциии
 
 File/Directory | Description
 --- | ---
-*.exe | Executable file of the game
-*_Data | Data folder containing the game resources
-level0-levelN | Files containing game scenes data, each scene has its own file
-sharedassets0-sharedassetsN | Game assets are split into sharedassets and .resS files
-resources.assets | Assets found in the project resources folders and their dependencies are stored in this file
-Managed | Folder containing unity DLLs
-Assembly-CSharp.dll | DLL file containing compiled C# files
-Assembly-UnityScript.dll | DLL file containing compiled UnityScript files
+*.exe | Исполняемый файл игры
+*_Data | Папка с данными, содержащая игровые ресурсы
+level0-levelN | Файлы, содержащие данные игровых сцен, каждая сцена имеет свой файл
+sharedassets0-sharedassetsN | Ресурсы игры разделены на общие ресурсы и файлы .resS. и это бесит :/
+resources.assets | Активы, найденные в папках ресурсов проекта, и их зависимости хранятся в этом файле.
+Managed | Папка, содержащая библиотеки DLL Unity
+Assembly-CSharp.dll | DLL-файл, содержащий скомпилированные файлы C #
+Assembly-UnityScript.dll | DLL-файл, содержащий скомпилированные файлы UnityScript
 
-## Extracting and editing code
+## Извлечение и редактирование кода
 
-C# and UnityScript files are compiled into the Assembly-CSharp.dll and Assembly-UnityScript.dll DLLs respectively, which can be found inside the Managed folder.
+Файлы C # и UnityScript компилируются в библиотеки DLL Assembly-CSharp.dll и Assembly-UnityScript.dll соответственно, которые находятся в папке Managed.
 
-DLLs can be decompiled using [ILSpy](http://ilspy.net/) or [dnSpy](https://github.com/0xd4d/dnSpy) which allow modifying and recompiling assembly files.
+DLL можно декомпилировать с помощью [ILSpy](http://ilspy.net/) или [dnSpy](https://github.com/0xd4d/dnSpy) которые позволяют изменять и перекомпилировать файлы сборки.
 
-If DLLs are missing from the managed directory, try dumping them using this tool [MegaDumper](https://github.com/CodeCracker-Tools/MegaDumper)
+Если библиотеки DLL отсутствуют в управляемом каталоге, попробуйте сбросить их с помощью этого инструмента [MegaDumper](https://github.com/CodeCracker-Tools/MegaDumper)
 
-## Extracting assets
+## Извлечение активов
 
-Assets are stored in the .assets and .resS files. Content of these files can be unpacked with one of these tools :
+Активы хранятся в файлах .assets и .resS. Содержимое этих файлов можно распаковать одним из следующих инструментов :
 
 Tool | Description
 --- | ---
-[UtinyRipper](https://github.com/mafaca/UtinyRipper) | uTinyRipper is a tool for extracting assets from serialized files (CAB-*, *.assets, *.sharedAssets, etc.) and assets bundles (*.unity3d, *.assetbundle, etc.) and conveting them into native Engine format.
-[Unity Studio](https://github.com/RaduMC/UnityStudio) | A tool for exploring, extracting and exporting assets from Unity games and apps.
-[Unity Assets Bundle Extractor](https://7daystodie.com/forums/showthread.php?22675-Unity-Assets-Bundle-Extractor) | UABE is a tool that allow modification of assets file and extraction of assets in usable formats (png/tga for textures, obj for meshes).
-[Unity Assets Explorer](http://zenhax.com/viewtopic.php?f=9&t=36) | Can extract textures to .DDS format, meshes to .43 format.
+[UtinyRipper](https://github.com/mafaca/UtinyRipper) | uTinyRipper - это инструмент для извлечения ресурсов из сериализованных файлов (CAB- *, * .assets, .sharedAssets и т. д.) и пакетов ресурсов ( .unity3d, * .assetbundle и т. д.) и преобразования их в собственный формат Engine.
+[Unity Studio](https://github.com/RaduMC/UnityStudio) | Инструмент для исследования, извлечения и экспорта ресурсов из игр и приложений Unity.
+[Unity Assets Bundle Extractor](https://7daystodie.com/forums/showthread.php?22675-Unity-Assets-Bundle-Extractor) | UABE - это инструмент, который позволяет изменять файл ресурсов и извлекать ресурсы в пригодных для использования форматах (png / tga для текстур, obj для сеток).
+[Unity Assets Explorer](http://zenhax.com/viewtopic.php?f=9&t=36) | Может извлекать текстуры в формат .DDS, сетки в формат .43.
 [QuickBMS](http://aluigi.altervista.org/quickbms.htm) with [this script](http://aluigi.altervista.org/bms/unity.bms) or [this one for webplayer](http://aluigi.org/papers/bms/unity3d_webplayer.bms) |
 
-#### DDS files :
+#### Файлы DDS :
 
-The [DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface) files can be opened/converted/edited with this [gimp plugin](http://registry.gimp.org/node/70) or this [photoshop plugin](https://developer.nvidia.com/nvidia-texture-tools-adobe-photoshop).
+В [DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface) файлы могут быть открыты / перекодировано / отредактирован с этим [gimp plugin](http://registry.gimp.org/node/70) или с этим [photoshop plugin](https://developer.nvidia.com/nvidia-texture-tools-adobe-photoshop).
 
-#### Another way of extracting meshes and textures :
+#### Другой способ извлечения сеток и текстур :
 
-Use [3D Ripper DX](http://www.deep-shadows.com/hax/3DRipperDX.htm) (doesn't support 64 bits binaries) or [Ninja Ripper](http://cgig.ru/en/2012/10/ho-to-use-ninja-ripper/).
+Используйте [3D Ripper DX](http://www.deep-shadows.com/hax/3DRipperDX.htm) (не поддерживает 64-битные двоичные файлы) или [Ninja Ripper](http://cgig.ru/en/2012/10/ho-to-use-ninja-ripper/).
 
-## Hacking memory
+## Взлом памяти
 
-Cheat engine have a feature called [Dissect mono](https://wiki.cheatengine.org/index.php?title=Mono) that can help hacking game's memory. This [video series](https://www.youtube.com/playlist?list=PLNffuWEygffbue0tvx7IusDmfAthqmgS7) about using cheat engine is really useful.
+У cheat-engine есть функция [Dissect mono](https://wiki.cheatengine.org/index.php?title=Mono) которая может помочь взломать память игры. Это видео [video series](https://www.youtube.com/playlist?list=PLNffuWEygffbue0tvx7IusDmfAthqmgS7) об использовании чит-движка действительно полезно.
+
+
+# [АВТОР ГИТА](https://vk.com/dobrov.sergey)
