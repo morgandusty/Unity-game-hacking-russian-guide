@@ -1,4 +1,3 @@
-![alt text](https://sun9-39.userapi.com/c858124/v858124980/21a91f/OD1WAGT1LEs.jpg)
 Это небольшое руководство по извлечению и изменению ресурсов или кода из игр, созданных с помощью движка Unity. Не стесняйтесь вносить свой вклад.
 
 1. [Структура папок игры Unity](#unity-game-folder-structure)
@@ -104,4 +103,4 @@ Tool | Description
 У cheat-engine есть функция [Dissect mono](https://wiki.cheatengine.org/index.php?title=Mono) которая может помочь взломать память игры. Это видео [video series](https://www.youtube.com/playlist?list=PLNffuWEygffbue0tvx7IusDmfAthqmgS7) об использовании чит-движка действительно полезно.
 
 
-# [АВТОР ГИТА](https://vk.com/dobrov.sergey)
+# [АВТОР ГИТА](https://vk.com/dobrov.sergey) ![alt text](https://sun9-39.userapi.com/c858124/v858124980/21a91f/OD1WAGT1LEs.jpg)
